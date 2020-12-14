@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% load urlify %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+ 
+  <div class="col-md-12">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+    {% for p in instance.images_set.all %}
+            {% if forloop.first %}
+                <div class="carousel-item active  ">
+            {% else %}
+                <div class="carousel-item  ">
+            {% endif %}
+    <img src="{{ p.image.url }}" alt="Image" width="1200px" style="height: 450px;">
+            </div>
+
+        {% endfor %}
+    </div>
+
+      <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+
+</div>
+</div>
+
+<div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+ <i class="far fa-user" style="color: #ff4444;"></i> By {{ instance.user }} |
+  <i class="far fa-calendar-alt" style="color: #ff4444;"></i> {{ instance.publish }} |
+<br/><br/>
+<h1 style="color:  #ff4444; font-weight: bold;">{{ instance.title }} </h1>
+{{ instance.content|linebreaks}}
+
+
+<div class="fb-comments" data-href="{{ request.build_absolute_uri }} data-numposts="5"></div>
+</p>
+</div>
+</div>
+
+
+<div class="new">
+<div class="container-fluid">
+  <div class="sec-title">
+      <h2>latest <span>news</span></h2>
+    </div>
+
+  <div class="row">
+    {% for obj in query_list %}
+
+  <div class="col-md-4">
+       <div class="view overlay">
+      {% if obj.image %}
+
+        <img class="card-img-top" src="{{ obj.image.url }}"
+          alt="Card image cap" height="250">
+            {% endif %}
+
+        <a href='{{ obj.get_obsolute_url }}'>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+      <div class="card">
+      <div class="card-body">
+     <!-- Title -->
+      <h4 class="card-title">
+      <a href='{{ obj.get_obsolute_url }}'>{{ obj.title }}</a></h4>
+      <!-- Text -->
+      <p class="card-text">{{obj.content|linebreaks|truncatechars:120 }}</p>
+      <!-- Button -->
+</div>
+  <!-- Card footer -->
+  <div class="rounded-bottom mdb-color elegant-color-dark text-center pt-2">
+    <ul class="list-unstyled list-inline font-small">
+      <li class="list-inline-item pr-2 white-text"><i class="far fa-user"></i> By {{ obj.user }}</li>
+      <li class="list-inline-item pr-2"><a href="#" class="white-text">
+      <i class="far fa-calendar-alt"></i> {{ obj.publish }}</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+
+<section class="subscribe-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+      <h3>ASSURING YOU OF OUR BEST SERVICE ALWAYS</h3>
+      </div>
+
+      <div class="col-md-3">
+      <a href="contact.html" class="btn-style-eight pull-right">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

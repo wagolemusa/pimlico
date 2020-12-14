@@ -1,0 +1,96 @@
+<div class="top-bar" style="position: relative;
+          background: #ff4e3c;
+          line-height: 1em;">
+          <br/>
+        <div class="container">
+          <div class="row d-flex align-items-center">
+          <div class="col-md-6">
+              <p style="color: #ffffff; font-weight: 600; font-weight: 16px;"><i class="fas fa-phone-square" style="color: #ffffff; font-size: 20px;"></i> &nbsp;&nbsp;+254720074965&nbsp;&nbsp;&nbsp;<i class="far fa-envelope" style="color: #ffffff; font-size: 20px;"></i> &nbsp;info@pimlicoauto.co.Ke</p>
+        </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-md-end justify-content-between">
+          <ul class="social-custom">
+           <li class="list-inline-item">
+           <a href="#"><i class="fab fa-facebook-f"></i></a></li>
+           <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fab fa-skype"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+<section class="subhead">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+     <a href='{% url "posts:list" %}'><img src="../static/nx.png" alt=""></a>
+    </div>
+    <div class="col-md-2">
+       
+      <div class="icon-box"><i class="fas fa-headphones-alt"></i></div>
+        <ul>
+          <li><strong style="font-weight: bold; font-size: 18px;">Call</strong></li>
+              <li>0733 667 674</li>
+        </ul>
+       
+    </div>
+    <div class="col-md-3">
+        <div class="icon-box">
+        <i class="fas fa-map-marker-alt"></i>
+    </div>
+        <ul>
+          <li><strong style="font-weight: bold; font-size: 18px;">Our Address</strong></li>
+            <li>P.O. Box 577 - 40100, Opp. Kisumu Airport</li>
+        </ul>
+    </div>
+
+    <div class="col-md-3">
+        <div class="icon-box"><i class="far fa-clock"></i></div>
+        <ul>
+          <li><strong style="font-weight: bold; font-size: 18px;">Working Hour</strong></li>
+              <li>Mon- Sat : 8 am - 5 pm</li>
+        </ul>
+    </div>
+</div>
+</div>
+</section>
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark sticky-top sticky-offset">
+<div class="container">
+
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href='{% url "posts:list" %}'>Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='{% url "posts:about" %}'>About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='{% url "posts:services" %}'>Services</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href='{% url "posts:contact" %}'>Contact</a>
+      </li>
+      </div>
+ 
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link" href='{% url "admin:index" %}'>Login</a>
+      </li>
+    
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->

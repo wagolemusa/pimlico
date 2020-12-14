@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section style=" padding: 4em; background: url('../static/slide5.jpg'">
+	<div class="container">
+		<div class="text1">
+		<h4>Services</h4>
+	 </div>
+	</div>
+</section>
+    <div class="container">
+      <div class="row">
+       <div class="col-md-9">
+          {% for obj in query_list %}
+       		<div class="firma-card row">
+       		<div class="col-md-6">
+      			{% if obj.image %}
+ 					<img class="card-img-top" src="{{ obj.image.url }}"
+          alt="Card image cap" height="250">
+            {% endif %}
+            <a href='{{ obj.get_obsolute_url }}'>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+     </div>
+  <div class="col">
+ <h4 class="card-title" style="padding-top: 10px;">
+      <a href='{{ obj.get_obsolute_url }}'>{{ obj.title }}</a></h4>
+      <p class="card-text">{{obj.content|linebreaks|truncatechars:120 }}</p>
+      <br>
+         <i class="far fa-user" style="color: #ff4444;"></i> By {{ obj.user }} |
+
+         <i class="far fa-calendar-alt" style="color: #ff4444;"></i> {{ obj.publish }} |
+                  <a href='{{ obj.get_obsolute_url }}' style="font-weight: 600">Read More</a>
+
+    </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+
+<div class="col-md-3">
+	 <div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Engine Replace</p>
+	</div>
+	</div>
+</div>
+
+ <div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Car Wash</p>
+	</div>
+	</div>
+</div>
+ 
+<div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Car Observation</p>
+	</div>
+	</div>
+</div>
+
+ <div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Tire Repair</p>
+	</div>
+</div>
+</div>
+
+<div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Car Paint</p>
+	</div>
+	</div>
+</div>
+<div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Home Service</p>
+	</div>
+</div>
+</div>
+ <div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Engine Repair</p>
+	</div>
+	</div>
+</div>
+
+<div class="border-card droppable">
+	<div class="card-type-icon"><i class="fas fa-arrow-right"></i></div>
+	<div class="content-wrapper">
+	<div class="label-group">
+	<p class="title cta">Servicing</p>
+	</div>
+	</div>
+</div>
+
+	  </div>
+	  </div>
+	  </div>
+ </div>
+ </div>
+</div>
+
+<section class="padd z-depth-1" style="background-color: #EBEBEB; padding: 1em;">
+<div class="container">
+  <div class="row">
+   <div class="col">
+  <h1 class="card-title" style="color: #4B515D
+; font-size: 2em;"> Find More News</h1>
+  </div>
+
+<div class="col-12 col-md-auto">
+  <div class="pagination" style="font-size: 1.5em; font-weight: 500; color: #4B515D;">
+    <span class="step-links">
+        {% if query_list.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ query_list.previous_page_number }} {% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ query_list.number }} of {{ query_list.paginator.num_pages }}.
+        </span>
+
+        {% if query_list.has_next %}
+            <a href="?page={{ query_list.next_page_number }}">next</a>
+            <a href="?page={{ query_list.paginator.num_pages }} {% if request.GET.q %} &q={{ request.GET.q }} {% endif %}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="subscribe-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+      <h3>ASSURING YOU OF OUR BEST SERVICE ALWAYS</h3>
+      </div>
+
+      <div class="col-md-3">
+      <a href='{% url "posts:contact" %}' class="btn-style-eight pull-right">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock content %}
